@@ -6,7 +6,18 @@ cache:
   yarn: true
 
 install:
-  - npm install
+  - yarn install
 
 script:
-  - npm run build
+  - yarn build
+
+deploy:
+  provider: pages
+  local_dir: dist/ #vuecli 指定打包后的工作目录
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep_history: false #不用缓存，每次发布都是最新内容
+  name: sunday96404
+  email: 397389173@qq.com
+  on:
+    branch: master
